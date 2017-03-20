@@ -24,9 +24,17 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
+                <section>
+                    <h1>APIs</h1>
+                    <h2>Eduardo Nascimento (eduardo.nascimento@pagar.me)</h1>
+                    <h2>Ricardo Ledo (ricardo.ledo@pagar.me)</h1>
+                </section>
 				<section>
                     <section>
                         <h2>Modelo cliente-servidor</h2>
+                    </section>
+                    <section>
+                        <p>Umas das primeiras tentativas de distribuir aplicações.</p>
                     </section>
                     <section>
                         <p>A camada cliente disponibiliza a interface de usuário, ou seja, é por meio dela que o usuário manipula informações.</p>
@@ -52,7 +60,7 @@
                         <p>O cliente não deve mais acessar o banco de dados diretamente</p>
                     </section>
                     <section>
-                        <p>Neste modelo, a aplicação pode ser dividida em três ou mais camadas: apresentação, regras de negócio e banco de dados</p>
+                        <p>Neste modelo, a aplicação pode ser dividida em três ou mais camadas: apresentação, regras de negócio e banco de dados (MVC)</p>
                     </section>
                     <section>
                         <img src="media/images/multicamadas.jpg">
@@ -81,7 +89,7 @@
                                   <param>
                                      <value><int>17</int></value>
                                   </param>
-                                     
+
                                   <param>
                                      <value><int>13</int></value>
                                   </param>
@@ -95,14 +103,14 @@
                             ```
                             import org.apache.xmlrpc.*;
 
-                            public class JavaServer { 
+                            public class JavaServer {
 
                                public Integer sum(int x, int y){
                                   return new Integer(x+y);
                                }
 
                                public static void main (String [] args){
-                               
+
                                   try {
                                      WebServer server = new WebServer(80);
                                      server.addHandler("sample", new JavaServer());
@@ -123,11 +131,11 @@
 
                             public class JavaClient {
                                public static void main (String [] args) {
-                               
+
                                   try {
-                                     XmlRpcClient server = new XmlRpcClient("http://localhost/RPC2"); 
+                                     XmlRpcClient server = new XmlRpcClient("http://localhost/RPC2");
                                      Vector params = new Vector();
-                                     
+
                                      params.addElement(new Integer(17));
                                      params.addElement(new Integer(13));
 
@@ -160,34 +168,82 @@
                 </section>
                 <section>
                     <section>
-                        <h2>SOAP</h2>
+                        <h2>HTTP</h2>
                     </section>
                     <section>
-                        <p>Simple Object Access Protocol ou Procolo Simples de Acesso a Objetos</p>
+                        <p>HTTP 1.1 RFC 2616 (1999) - Difundido por navegadores por não se ater à um modelo de dados</p>
                     </section>
                     <section>
-                        <p></p>
+                        <p>Permite compresão de até 40% dos dados</p>
+                    </section>
+                    <section>
+                        <p>Simplificação comunicação entre as camadas. A aplicação cliente pode invocar procedimentos remotos por meio de URI.</p>
+                    </section>
+                    <section>
+                        <p>Procedimentos podem ser compartilhados entre aplicações por meio de hipermidia.</p>
+                    </section>
+                    <section>
+                        <p>
+                            <a target="_blank" href="https://www.google.com.br/?gws_rd=ssl#q=API&*">https://www.google.com.br/?gws_rd=ssl#q=API&*</a>
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Verbos HTTP</h2>
+                        <ul>
+                            <li>GET</li>
+                            <li>POST</li>
+                            <li>PUT</li>
+                            <li>PATCH</li>
+                            <li>DELETE</li>
+                            <li>OPTIONS</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>HTTP status code</h2>
+                        <ul>
+                            <li>1XX Informativo</li>
+                            <li>2XX Sucesso</li>
+                            <li>3XX Redirecionamento</li>
+                            <li>4XX Erro de cliente</li>
+                            <li>5XX Erro de servidor</li>
+                        </ul>
+
+                        <p><a href="https://httpstatusdogs.com/" target="_blank">https://httpstatusdogs.com/</a></p>
                     </section>
                 </section>
                 <section>
                     <section>
-                        <h2>RESTFul e Richardson Maturity Level</h2>
+                        <h2>REST</h2>
                     </section>
                     <section>
-                        <h3>REST</h3>
-                        <p>Representational State Transfer ou Transferência de Estado Representacional é uma forma de modelar serviços web pensando em recursos e não mais em serviços. A comunicação entre o cliente e o servidor tem intuito de manipular o estado de um recurso.</p>
+                        <p>REpresentational State Transfer ou Transferência de Estado Representacional é uma forma de modelar serviços web pensando em recursos e não mais em serviços. A comunicação entre o cliente e o servidor tem intuito de manipular o estado de um recurso.</p>
                     </section>
                     <section>
-                        Leonard Richardson é um arquiteto de software que propôs 
-                    </section>
-                    <section>
-                        <h3>Níveis de maturidade</h3>
+                        <p>RPC</p>
                         <ul>
-                            <li>Nível 0</li>
-                            <li>Nível 1 - Recursos</li>
-                            <li>Nível 2 - Verbos HTTP</li>
-                            <li>Nível 3 - Hypermedia</li>
+                            <li>getTransaction()</li>
+                            <li>addTransaction()</li>
+                            <li>removeTransaction()</li>
+                            <li>updateTransaction()</li>
+                            <li>findTransaction()</li>
                         </ul>
+                    </section>
+                    <section>
+                        <p>REST</p>
+                        <ul>
+                            <li>GET /transaction/:id</li>
+                            <li>POST /transaction</li>
+                            <li>PUT/PATCH /transaction/:id</li>
+                            <li>DELETE /transaction/:id</li>
+                        </ul>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Richardson Maturity Model</h2>
+                    </section>
+                    <section>
+                        <img src="media/images/overview.png">
                     </section>
                     <section>
                         <h3>Nível de maturidade 0</h3>
@@ -199,16 +255,13 @@
                     <section data-markdown>
                         <script type="text/template">
                             ```
-                            POST /appointmentService HTTP/1.1
+                            POST /paymentService HTTP/1.1
 
                             {
-                                "openSlotRequest": {
-                                    "date": "2010-01-04",
-                                    "doctor": "mjones"
-                                }
+                                "listTransactions": {}
                             }
                             ```
-                            <small>Obtendo a lista de datas disponíveis</small>
+                            <small>Obtendo a lista de transferências</small>
                         </script>
                     </section>
                     <section data-markdown>
@@ -217,20 +270,22 @@
                             HTTP/1.1 200 OK
 
                             {
-                                "openSlotList": [
-                                    "slot": {
-                                        "start": "1400",
-                                        "end": "1450",
-                                        "doctor": {
-                                            "id": "mjones"
-                                        }
+                                "transactions": [
+                                    "transaction": {
+                                        "id: "1",
+                                        "amount": "1400",
+                                        "customer": {
+                                            "15"
+                                        },
+                                        "status": "paid"
                                     },
-                                    "slot": {
-                                        "start": "1600",
-                                        "end": "1650",
-                                        "doctor": {
-                                            "id": "mjones"
-                                        }
+                                    "transaction": {
+                                        "id": "2",
+                                        "amount": "1600",
+                                        "customer": {
+                                            "22"
+                                        },
+                                        "status": "paid"
                                     }
                                 ]
                             }
@@ -241,17 +296,15 @@
                     <section data-markdown>
                         <script type="text/template">
                             ```
-                            POST /appointmentService HTTP/1.1
-                            
+                            POST /paymentService HTTP/1.1
+
                             {
-                                "slot": {
-                                    "doctor": "mjones",
-                                    "start": "1400",
-                                    "end": "1450"
+                                "getCustomer": {
+                                    "id": "22"
                                 }
                             }
                             ```
-                            <small>Agendando uma consulta</small>
+                            <small>Consultando um cliente</small>
                         </script>
                     </section>
                     <section data-markdown>
@@ -260,15 +313,10 @@
                             HTTP/1.1 200 OK
 
                             {
-                                "appointment": {
-                                    "slot": {
-                                        "doctor": "mjones",
-                                        "start": "1400",
-                                        "end": "1450"
-                                    },
-                                    "patient": {
-                                        "id": "jsmith"
-                                    }
+                                "customer": {
+                                    "id": "22",
+                                    "name": "John Doe",
+                                    "document": "437689181"
                                 }
                             }
                             ```
@@ -281,7 +329,7 @@
                             HTTP/1.1 200 OK
 
                             {
-                                "error": "Slot not available"
+                                "error": "Customer not found"
                             }
                             ```
                         </script>
@@ -296,58 +344,44 @@
                     <section data-markdown>
                         <script type="text/template">
                             ```
-                            POST /doctors/mjones HTTP/1.1
-                            
-                            {
-                                "openSlotRequest": {
-                                    "date": "2010-01-04",
-                                    "doctor": "mjones"
-                                }
-                            }
-                            ```
-                            <small>Ao invés de direcionar todas as chamadas para `/apppointmentService`, criamos um recurso responsável por manter o estado de `/doctors`.</small>
-                        </script>
-                    </section>
-                    <section data-markdown>
-                        <script type="text/template">
-                            ```
-                            POST /doctors/mjones HTTP/1.1
-                            
-                            {
-                                "openSlotList": [
-                                    "slot": {
-                                        "id": "3423", 
-                                        "start": "1400",
-                                        "end": "1450",
-                                        "doctor": {
-                                            "id": "mjones"
-                                        }
+                            POST /transactions/list HTTP/1.1
+
+                            HTTP/1.1 200 OK
+
+                            [
+                                {
+                                    "id: "1",
+                                    "amount": "1400",
+                                    "customer": {
+                                        "15"
                                     },
-                                    "slot": {
-                                        "id": "5134",
-                                        "start": "1600",
-                                        "end": "1650",
-                                        "doctor": {
-                                            "id": "mjones"
-                                        }
-                                    }
-                                ]
-                            }
+                                    "status": "paid"
+                                },
+                                {
+                                    "id": "2",
+                                    "amount": "1600",
+                                    "customer": {
+                                        "22"
+                                    },
+                                    "status": "paid"
+                                }
+                            ]
                             ```
+                            <small>Ao invés de direcionar todas as chamadas para `/paymentService`, criamos um recurso responsável por manter o estado das transações.</small>
                         </script>
                     </section>
                     <section data-markdown>
                         <script type="text/template">
                             ```
-                            POST /slot/3423 HTTP/1.1
-                            
+                            POST /customer/22 HTTP/1.1
+
+                            HTTP/1.1 200 OK
                             {
-                                "patient": {
-                                    "id": "jsmith"
-                                }
+                                "id": "22",
+                                "name": "John Doe",
+                                "document": "437689181"
                             }
                             ```
-                            <small>Também temos um recurso específico para agendamento.</small>
                         </script>
                     </section>
                     <section>
@@ -364,35 +398,54 @@
                     <section data-markdown>
                         <script type="text/template">
                             ```
-                            POST /slot/3423 HTTP/1.1
-                            
-                            {
-                                "patient": {
-                                    "id": "jsmith"
+                            GET /transactions HTTP/1.1
+
+                            HTTP/1.1 200 OK
+                            [
+                                {
+                                    "id: "1",
+                                    "amount": "1400",
+                                    "customer": {
+                                        id "15"
+                                    },
+                                    "status": "paid"
+                                },
+                                {
+                                    "id": "2",
+                                    "amount": "1600",
+                                    "customer": {
+                                        "22"
+                                    },
+                                    "status": "paid"
                                 }
-                            }
+                            ]
                             ```
-                            <small>Também temos um recurso específico para agendamento.</small>
+                            <small>Também temos um recurso específico para transações.</small>
                         </script>
                     </section>
                     <section data-markdown>
                         <script type="text/template">
                             ```
+                            POST /transactions HTTP/1.1
+
+                            {
+                                "amount": 1337,
+                                "customer": {
+                                    "id" : 22
+                                }
+                            }
+
                             HTTP/1.1 201 Created
 
                             {
-                                "slot": {
-                                    "id": "5134",
-                                    "start": "1600",
-                                    "end": "1650",
-                                    "doctor": {
-                                        "id": "mjones"
-                                    },
-                                    "patient": {
-                                        "id": "jsmith"
-                                    }
-                                }
+                                "id": 3,
+                                "amount": 1337,
+                                "customer": {
+                                    "id" : 22
+                                },
+                                "status": "paid"
                             }
+
                             ```
                         </script>
                     </section>
@@ -406,84 +459,32 @@
                     <section data-markdown>
                         <script type="text/template">
                             ```
-                            GET /doctors/mjones HTTP/1.1
-                            
-                            {
-                                "openSlotRequest": {
-                                    "date": "2010-01-04",
-                                    "doctor": "mjones"
-                                }
-                            }
-                            ```
-                        </script>
-                    </section>
-                    <section data-markdown>
-                        <script type="text/template">
-                            ```
-                            GET /doctors/mjones HTTP/1.1
-                            
-                            {
-                                "openSlotList": [
-                                    "slot": {
-                                        "id": "3423", 
-                                        "start": "1400",
-                                        "end": "1450",
-                                        "doctor": {
-                                            "id": "mjones"
-                                        },
-                                        "links": {
-                                            "book": "/slot/3423",
-                                        }
-                                    },
-                                    "slot": {
-                                        "id": "5134",
-                                        "start": "1600",
-                                        "end": "1650",
-                                        "doctor": {
-                                            "id": "mjones"
-                                        },
-                                        "links": {
-                                            "book": "/slot/5134",
-                                        }
-                                    }
-                                ]
-                            }
-                            ```
-                        </script>
-                    </section>
-                    <section data-markdown>
-                        <script type="text/template">
-                            ```
-                            HTTP/1.1 201 Created
+                            GET /transactions/1 HTTP/1.1
+
+                            HTTP/1.1 200 OK
 
                             {
-                                "slot": {
-                                    "id": "5134",
-                                    "start": "1600",
-                                    "end": "1650",
-                                    "doctor": {
-                                        "id": "mjones"
-                                    },
-                                    "patient": {
-                                        "id": "jsmith"
-                                    },
-                                    "links": {
-                                        "cancel": "/slot/5134/appointment",
-                                        "updateContactInfo": "/patients/jsmith/contactInfo",
-                                    }
+                                "id: "1",
+                                "amount": "1400",
+                                "customer": {
+                                    id "15"
+                                },
+                                "status": "paid",
+                                "_links": {
+                                    "customer": "/customer/15"
                                 }
                             }
                             ```
+                            <small>O atributo "_links" nos permite acessar o objeto "customer".</small>
                         </script>
                     </section>
                 </section>
                 <section>
-                    http://www.devmedia.com.br/introducao-ao-modelo-multicamadas/5541
-                    https://pt.wikipedia.org/wiki/XML-RPC
-                    https://martinfowler.com/articles/richardsonMaturityModel.html
-                    https://www.crummy.com/writing/speaking/2008-QCon/act3.html
-
-
+                    <li>http://www.devmedia.com.br/introducao-ao-modelo-multicamadas/5541</li>
+                    <li>https://pt.wikipedia.org/wiki/XML-RPC</li>
+                    <li>https://martinfowler.com/articles/richardsonMaturityModel.html</li>
+                    <li>https://www.crummy.com/writing/speaking/2008-QCon/act3.html</li>
+                    <li>http://www8.org/w8-papers/5c-protocols/key/key.html</li>
                 </section>
 			</div>
 		</div>
