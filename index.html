@@ -25,7 +25,7 @@
 		<div class="reveal">
 			<div class="slides">
                 <section>
-                    <h1>APIs</h1>
+                    <h1 style="text-transform: none;">APIs</h1>
                     <h3>Eduardo Nascimento</h3>
                     <h3>Ricardo Ledo</h3>
                 </section>
@@ -34,16 +34,16 @@
                         <h2>Modelo cliente-servidor</h2>
                     </section>
                     <section>
-                        <p>Umas das primeiras tentativas de distribuir aplicações.</p>
+                        <p>Umas das primeiras tentativas de <span class="destaque">distribuir aplicações.</span></p>
                     </section>
                     <section>
-                        <p>A camada cliente disponibiliza a interface de usuário, ou seja, é por meio dela que o usuário manipula informações.</p>
+                        <p>A camada cliente disponibiliza a <span class="destaque">interface</span> de usuário, ou seja, é por meio dela que o usuário manipula informações.</p>
                     </section>
                     <section>
-                        <p>O acesso a essas informações ocorre por meio de uma conexão direta com banco de dados, ou seja, não existe uma camada intermediária entre a interface e servidor de banco de dados.</p>
+                        <p>O acesso a essas informações ocorre por meio de uma <span class="destaque">conexão direta com banco de dados</span>, ou seja, não existe uma camada intermediária entre a interface e servidor de banco de dados.</p>
                     </section>
                     <section>
-                        <p>Neste modelo as regras de negócio podem ficar armazenadas no cliente, no servidor ou em ambos.</p>
+                        <p>Neste modelo as regras de negócio podem ficar armazenadas <span class="destaque">no cliente, no servidor ou em ambos.<span></p>
                     </section>
                     <section>
                         <img src="media/images/Cliente-Servidor.png">
@@ -54,13 +54,13 @@
                         <h2>Modelo multicamadas</h2>
                     </section>
                     <section>
-                        <p>O modelo multicamadas adiciona uma camada intermediária responsável por armazenar as regras de negócio.</p>
+                        <p>O modelo multicamadas <span class="destaque">adiciona uma camada intermediária</span> responsável por armazenar as regras de negócio.</p>
                     </section>
                     <section>
                         <p>O cliente não deve mais acessar o banco de dados diretamente</p>
                     </section>
                     <section>
-                        <p>Neste modelo, a aplicação pode ser dividida em três ou mais camadas: apresentação, regras de negócio e banco de dados (MVC)</p>
+                        <p>Neste modelo, a aplicação pode ser dividida em três ou mais camadas: <span class="destaque">apresentação, regras de negócio e banco de dados (MVC)</span></p>
                     </section>
                     <section>
                         <img src="media/images/multicamadas.jpg">
@@ -74,10 +74,10 @@
                         <p>RPC - Remote Procedure Call ou Chamada de Procedimento Remoto</p>
                     </section>
                     <section>
-                        <p>É um protocolo baseado em XML que permite invocar funções ou procedimentos em um servidor.</p>
+                        <p>É um protocolo baseado em XML que permite <span class="destaque">invocar funções ou procedimentos</span> em um servidor.</p>
                     </section>
                     <section>
-                        <p>As regras de negócio ficam contidas em um servidor e suas funções são catalogadas em arquivos XML que descrevem os parâmetros necessários para essas funções.</p>
+                        <p>As regras de negócio ficam contidas em um servidor e suas funções são <span class="destaque">catalogadas em arquivos XML</span> que descrevem os parâmetros necessários para essas funções.</p>
                     </section>
                     <section data-markdown>
                         <script type="text/template">
@@ -174,13 +174,13 @@
                         <p>HTTP 1.1 RFC 2616 (1999) - Difundido por navegadores por não se ater à um modelo de dados</p>
                     </section>
                     <section>
-                        <p>Permite compresão de até 40% dos dados</p>
+                        <p>Permite compresão de <span class="destaque">até 40%</span> dos dados</p>
                     </section>
                     <section>
-                        <p>Simplificação comunicação entre as camadas. A aplicação cliente pode invocar procedimentos remotos por meio de URI.</p>
+                        <p>Simplificação comunicação entre as camadas. A aplicação cliente pode <span class="destaque">invocar procedimentos remotos por meio de URI.</span></p>
                     </section>
                     <section>
-                        <p>Procedimentos podem ser compartilhados entre aplicações por meio de hipermidia.</p>
+                        <p>Procedimentos podem ser compartilhados entre aplicações por meio de <span class="destaque">hipermidia.</span></p>
                     </section>
                     <section>
                         <p>
@@ -216,7 +216,7 @@
                         <h2>REST</h2>
                     </section>
                     <section>
-                        <p>REpresentational State Transfer ou Transferência de Estado Representacional é uma forma de modelar serviços web pensando em recursos e não mais em serviços. A comunicação entre o cliente e o servidor tem intuito de manipular o estado de um recurso.</p>
+                        <p>REpresentational State Transfer ou Transferência de Estado Representacional é uma forma de modelar serviços web pensando em <span class="destaque">recursos</span> e não mais em serviços. A comunicação entre o cliente e o servidor tem intuito de <span class="destaque">manipular o estado de um recurso.</span></p>
                     </section>
                     <section>
                         <p>RPC</p>
@@ -247,7 +247,7 @@
                     </section>
                     <section>
                         <h3>Nível de maturidade 0</h3>
-                        <p>Aplicação é modelada utilizando o protocolo HTTP apenas para fazer suas interações remotas, sem usar nenhum mecanismo web.</p>
+                        <p>Aplicação é modelada utilizando o <span class="destaque">protocolo HTTP apenas para fazer suas interações remotas</span>, sem usar nenhum mecanismo web.</p>
                     </section>
                     <section>
                         <img src="media/images/level0.png">
@@ -336,7 +336,7 @@
                     </section>
                     <section>
                         <h3>Nível de maturidade 1</h3>
-                        <p>Aplicação é modelada para distribuir suas informações em forma de recursos. É neste momento que procedimentos com grandes responsabilidades são decompostos em diversos recursos.</p>
+                        <p>Aplicação é modelada para distribuir suas <span class="destaque">informações em forma de recursos</span>. É neste momento que procedimentos com grandes responsabilidades são decompostos em diversos recursos.</p>
                     </section>
                     <section>
                         <img src="media/images/level1.png">
@@ -386,11 +386,11 @@
                     </section>
                     <section>
                         <h3>Nível de maturidade 2</h3>
-                        <p>Aplicação passa a utilizar os verbos HTTP para se comunicar. Isso permite separar chamadas que são mais críticas e podem alterar dados como POST, PUT, PATCH ou DELETE, de chamas que apenas consultam dados, como GET.</p>
+                        <p>Aplicação passa a <span class="destaque">utilizar os verbos HTTP para se comunicar</span>. Isso permite separar chamadas que são mais críticas e podem alterar dados como POST, PUT, PATCH ou DELETE, de chamas que apenas consultam dados, como GET.</p>
                     </section>
                     <section>
                         <h3>Nível de maturidade 2</h3>
-                        <p>Além disso, a aplicação passa a utilizar códigos do próprio protocolo HTTP para identificar o resultado da requisição, como 200 para uma requisição bem sucedida ou 401 para requisições não autorizadas.</p>
+                        <p>Além disso, a aplicação passa a <span class="destaque">utilizar códigos do próprio protocolo HTTP</span> para identificar o resultado da requisição, como 200 para uma requisição bem sucedida ou 401 para requisições não autorizadas.</p>
                     </section>
                     <section>
                         <img src="media/images/level2.png">
@@ -451,10 +451,10 @@
                     </section>
                     <section>
                         <h3>Nível de maturidade 3</h3>
-                        <p>Aplicação utiliza controles de hypermedia para que aplicações clientes possam descobrir outras formas de interagir com o recurso.</p>
+                        <p>Aplicação utiliza <span class="destaque">controles de hipermedia</span> para que aplicações clientes possam <span class="destaque">descobrir outras formas de interagir</span> com o recurso.</p>
                     </section>
                     <section>
-                        <img src="media/images/level3.png">
+                        <img style="background: white" src="media/images/level3.png">
                     </section>
                     <section data-markdown>
                         <script type="text/template">
@@ -512,5 +512,19 @@
 				]
 			});
 		</script>
+        <style>
+        .destaque {
+            color: #ee6c00;
+            font-weight: bolder !important;
+        }   
+
+        .slides {
+            height: 100% !important;
+        }
+
+        .reveal pre code {
+            max-height: 500px !important;
+        }
+        </style>
 	</body>
 </html>
